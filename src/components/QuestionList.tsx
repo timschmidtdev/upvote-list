@@ -3,6 +3,7 @@
 import { useQuestions } from "@/lib/use-questions";
 import { QuestionCard } from "./QuestionCard";
 import { QuestionForm } from "./QuestionForm";
+import { QuestionListSkeleton } from "./QuestionListSkeleton";
 
 export function QuestionList() {
   const { questions, voted, error, addQuestion, toggleVote } = useQuestions();
@@ -20,7 +21,7 @@ export function QuestionList() {
           </p>
         )}
         {questions === null ? (
-          <p className="py-8 text-center text-zinc-500">Loading…</p>
+          <QuestionListSkeleton />
         ) : questions.length === 0 ? (
           <p className="py-8 text-center text-zinc-500">No questions yet. Be the first to add one.</p>
         ) : (
